@@ -38,7 +38,6 @@ class ParticleSystem
       alpha = (1 - e.age / e.life) * 255
       SDL::Gfx.filledCircleRGBA screen, e.position[0], e.position[1], e.size,
                                 e.color[0], e.color[1] , e.color[2], alpha 
-  
     end    
   end
 private
@@ -75,10 +74,10 @@ class ChamberBox
        particle.position[0] + particle.size > @x2
       particle.velocity.send :[]=, 0, - particle.velocity[0]
     end 
-     if particle.position[1] - particle.size < @y1 ||
-        particle.position[1] + particle.size > @y2
-       particle.velocity.send :[]=, 1,  -particle.velocity[1]
-     end 
+    if particle.position[1] - particle.size < @y1 ||
+       particle.position[1] + particle.size > @y2
+      particle.velocity.send :[]=, 1,  -particle.velocity[1]
+    end 
   end
 end
 
